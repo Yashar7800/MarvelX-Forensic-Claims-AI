@@ -1,0 +1,23 @@
+[
+  {
+    "claim": "claim_2",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: The provided evidence is a boarding pass. Logic: The kill-switch INVALID_PHOTO is triggered because the image is of a boarding pass, which is not an official document with structured text.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim_5",
+    "decision": "DENY",
+    "confidence_score": 0.8,
+    "reasoning": "Extraction: The provided [Image/OCR Content: proof.jpg] appears to be a medical note, but it lacks structured text and contains unrecognizable characters, suggesting it may not be a genuine document. Logic: The document triggers the INVALID_PHOTO kill-switch as it does not contain clear, structured text, and the provided text seems to be a jumbled, unrecognizable mix of characters, which raises concerns about its authenticity.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim_9",
+    "decision": "APPROVE",
+    "confidence_score": 1.0,
+    "reasoning": "Extraction: Name 'Daisy Mariuxi Bastidas Angulo' matches the claimant's name. Medical Incident Date is 29 July 2023, and Flight Departure Date is also 29 July 2023, resulting in a gap of 0 days. The document explicitly states 'reposo medico de 15 dias' (15-day rest period) starting from the incident date, which covers the flight date. Logic: The category is Trip Cancellation, and the reason is a medical emergency, which is a covered reason. The identity match is perfect, and the gap math is satisfied.",
+    "payout": 129.0
+  }
+]

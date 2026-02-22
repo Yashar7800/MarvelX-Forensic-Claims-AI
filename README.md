@@ -18,6 +18,25 @@
 
 * Transparent Reasoning: Detailed JSON-based decision logs explaining the why behind every verdict.
 
+# How the App Works (The Backend Logic)
+
+`The core of MarvelX is a multi-agent forensic engine. Instead of a single AI trying to do everything, the task is split between specialized "agents" using LangGraph.`
+
+1. **Data Ingestion:**The Flask app collects the Claim ID, a text description, and two files (the "Proof" image and "Supporting" documentation).
+
+2. **The Gateman Agent:**It uses EasyOCR to "read" the image. If it finds the image is unreadable, redacted (blacked out), or contains "kill-switch" keywords, it stops the process immediately to prevent fraud.
+
+3. **The Auditor Agent:** If the Gateman passes the claim, the Auditor takes over. It compares the text the user typed against the text found in the documents. It looks for forensic discrepancies, such as:
+
+- Dates that don't match.
+
+- Names that are spelled differently.
+
+- Inconsistent payout amounts.
+
+**The Verdict:** The agents reach a consensus (Approve, Deny, or Uncertain) and save the full reasoning into a JSON file, which the UI then displays to you.
+
+
 # The Architecture
 
 * **The Gateman**: Acts as the first line of defense. It checks for "Kill-Switches" like poor image quality or obvious data tampering.
@@ -43,4 +62,18 @@ python app.py
 
 <p align="center">
   <img src="demo/demo.png" width="800" title="MarvelX UI">
+</p>
+
+# Example Scenarios
+
+## Denial
+
+<p align="center">
+  <img src="demo/denial.png" width="800" title="MarvelX UI">
+</p>
+
+## Approval
+
+<p align="center">
+  <img src="demo/Approval.png" width="800" title="MarvelX UI">
 </p>
