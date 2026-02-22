@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Claims Adjuster</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='logo.avif') }}" alt="MarvelX Logo" class="top-left-logo">
+    <div class="glass-panel">
+        <h1>Submit Claim Evidence</h1>
+        
+        <form id="claimForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="claim_number">Claim Number / ID</label>
+                <input type="text" id="claim_number" name="claim_number" placeholder="e.g., Claim 1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="proof">1. Official Proof (Image)</label>
+                <input type="file" id="proof" name="proof" accept=".png, .jpg, .jpeg, .webp" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">2. Claimant Description</label>
+                <textarea id="description" name="description" rows="4" placeholder="Describe the incident here... (Will be saved as description.txt)" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="supporting">3. Supporting System Data (.md)</label>
+                <input type="file" id="supporting" name="supporting" accept=".md" required>
+            </div>
+
+            <button type="submit" id="submitBtn">Analyze Claim</button>
+        </form>
+
+        <div id="loading" class="hidden">
+            <p>🤖 AI Agents are analyzing the documents...</p>
+        </div>
+
+        <div id="resultBox" class="hidden">
+            <h3 id="decisionText"></h3>
+            <p><strong>Reasoning:</strong> <span id="reasoningText"></span></p>
+            <p><strong>Calculated Payout:</strong> €<span id="payoutText"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('claimForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // UI state changes
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('loading').classList.remove('hidden');
+            document.getElementById('resultBox').classList.add('hidden');
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('/submit_claim', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                document.getElementById('loading').classList.add('hidden');
+                
+                if (data.success) {
+                    const v = data.verdict;
+                    document.getElementById('resultBox').classList.remove('hidden');
+                    document.getElementById('decisionText').innerText = `Decision: ${v.decision || v.status}`;
+                    document.getElementById('decisionText').className = (v.decision === 'APPROVE') ? 'text-green' : 'text-red';
+                    document.getElementById('reasoningText').innerText = v.reasoning || "No reasoning provided.";
+                    document.getElementById('payoutText').innerText = v.payout_amount || "0.00";
+                } else {
+                    alert("Error processing claim: " + data.error);
+                }
+            } catch (err) {
+                alert("Server error occurred.");
+            } finally {
+                document.getElementById('submitBtn').disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

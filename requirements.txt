@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+google-genai
+python-dotenv
+pydantic
+Pillow
+groq
+pytesseract
+easyocr 
+numpy
+openai
+langgraph
+langchain_groq
+Flask

@@ -1,0 +1,177 @@
+[
+  {
+    "claim": "claim 1",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: No medical proof or doctor's certificate was found in the provided documents. Logic: The claimant mentions a medical emergency but does not provide any valid medical documentation, such as an image of a doctor's certificate or a hospital report, to support their claim.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 2",
+    "decision": "APPROVE",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: Name 'Derek Kotze' matches in both claim description and supporting documents. Flight departure date is 2024-03-05. Medical appointment date is not explicitly stated but implied to be the same as the flight date. Gap math is not applicable as the events are on the same day. Logic: The claim falls under 'Missed Departure or Missed Connection' category. Required documents include proof of booking and incident report, which are provided in the form of a boarding pass and flight details.",
+    "payout": 113.0
+  },
+  {
+    "claim": "claim 3",
+    "decision": "APPROVE",
+    "confidence_score": 1.0,
+    "reasoning": "Extraction: Name 'Evelyne Kacou Meitiale' matches the claimant's name. Medical Incident Date is August 13, 2011. Flight Departure Date is also August 13, 2011. The gap between them is 0 days. Logic: The category is Trip Cancellation due to Medical Emergency, which is a covered reason. The identity match is perfect, and there are no contradictory dates. The gap math is satisfied as the medical incident occurred on the same day as the flight departure.",
+    "payout": 624.0
+  },
+  {
+    "claim": "claim 4",
+    "decision": "DENY",
+    "confidence_score": 0.85,
+    "reasoning": "Extraction: The medical certificate is provided as an image with OCR content, but the text within the image contains grammatical errors and inconsistencies, such as 'cerlific avalr Intorrogo' and 'inc us Fzu'. Logic: The document triggers the INVALID_PHOTO kill-switch due to the lack of structured text and the presence of environmental text, but more importantly, it raises suspicions of forgery due to the errors and inconsistencies in the text.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 5",
+    "decision": "DENY",
+    "confidence_score": 0.9,
+    "reasoning": "Extraction: The provided medical note is an image with OCR content, but the text extracted does not resemble a structured medical document. Logic: The extracted text '[Image/OCR Content: Italian_medical_2a.jpg] 3/ x Zcu culhe= cb _ O6 1 e1, Hovce & 6/' Ccyoza LU 12.30 (044 Ceue/o Coxetqne_ Geul Lua Cuiw 2 CCCI uun' (xina - HE ICO DVnA #e1 pe ie atr nx inuutunD' lacks coherence and does not contain any recognizable medical terminology or structure, suggesting it may not be a genuine medical document, thus triggering the INVALID_PHOTO or potentially the FORGERY_TEXT rule due to its incoherence and lack of structured text.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 6",
+    "decision": "APPROVE",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: Name 'JORGE LUIS VELOSA RUIZ' matches claimant's partner's name. Medical Incident Date is 2017-07-22 and Flight Departure Date is 2017-08-15. Gap between them is 24 days, which exceeds the 7-day gap. However, the document explicitly states 'hospitalized' and 'no way he'll be discharged or fit to travel by then', satisfying the gap rule. Logic: The claim falls under the 'Trip Cancellation or Rescheduling' category due to a medical emergency, which is a covered reason. The identity match is perfect, and the document's stamp date (2017-07-27) does not predate the incident date, thus passing the chronology and stamp audit.",
+    "payout": 482.0
+  },
+  {
+    "claim": "claim 7",
+    "decision": "APPROVE",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: Name 'Gloria Emperatriz Mi Nano Reyna' matches the claim description. Medical Incident Date is August 13, 2015, and Flight Departure Date is September 13, 2015. The gap between them is 31 days, which exceeds the 7-day gap rule. However, the document states the patient was 'hospitalizada' (hospitalized) and 'dada de alta' (discharged) after the flight date, implying she was unfit to travel. Logic: The claim falls under Trip Cancellation due to medical emergency, which is a covered reason. The identity match is perfect, and the chronological audit does not reveal any discrepancies.",
+    "payout": 371.0
+  },
+  {
+    "claim": "claim 8",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: The claimant submitted a text document named 'hospital admission1.md' which appears to be an official hospital admission and discharge documentation. Logic: This triggers the FORGERY_TEXT kill-switch as the claimant is trying to submit the official hospital documentation as a standalone .md file instead of an image.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 9",
+    "decision": "APPROVE",
+    "confidence_score": 1.0,
+    "reasoning": "Extraction: Name 'Daisy Mariuxi Bastidas Angulo' matches the claimant's name. Medical Incident Date is 29 July 2023, and Flight Departure Date is also 29 July 2023, resulting in a gap of 0 days. The document explicitly states 'reposo medico de 15 dias' (15-day rest period) starting from the incident date, which covers the flight date. Logic: The category is Trip Cancellation, and the reason is a medical emergency, which is a covered reason. The identity match is perfect, and the gap math is satisfied.",
+    "payout": 129.0
+  },
+  {
+    "claim": "claim 10",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: The medical certificate states the patient is 'CLINICAMENTE SANA' (Clinically Healthy). Logic: The HEALTHY_REPORT kill-switch triggered because the medical text explicitly states the patient is healthy.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 11",
+    "decision": "APPROVE",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: Name 'Cristina Vanessa Carhuayo Freire' matches, Medical Incident Date is 2023-01-25, Flight Departure Date is 2023-01-25. Logic: The gap between the medical incident and the flight is less than 7 days, and the medical document explicitly states the patient was advised to rest due to the side effects of the treatment, which aligns with the missed flight reason. However, the category is 'Missed Departure', which requires an incident report/cause of delay and proof of booking. The provided documents include a doctor's note and booking details, satisfying the requirements for a missed departure claim.",
+    "payout": 44.0
+  },
+  {
+    "claim": "claim 12",
+    "decision": "APPROVE",
+    "confidence_score": 1.0,
+    "reasoning": "Extraction: Name 'Amy Ndiaye' matches, Medical Incident Date is 2022-12-01, Flight Departure Date is 2022-12-02, Gap is 1 day which is within the 7-day gap rule. Logic: The category is Trip Cancellation due to Medical Emergency, IDENTITY is a perfect match, and dates are consistent.",
+    "payout": 89.0
+  },
+  {
+    "claim": "claim 13",
+    "decision": "DENY",
+    "confidence_score": 0.85,
+    "reasoning": "Extraction: The medical certificate contains a date inconsistency. Logic: The date of issuance is stated as '17/11/*2023', which appears to be incorrect given the context of the hospitalization on '16 d\u00e9cembre 2023'. This suggests a potential forgery or alteration of the document.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 14",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: The medical certificate image contains text stating the patient is 'apte a la vie en collectivite' and 'Ne presente actuellement aucune contre-indication apparelte a la pratique du sport suivant', which translates to 'fit for collective life' and 'does not currently present any contraindications for the practice of the following sport'. Logic: The HEALTHY_REPORT kill-switch is triggered because the medical text explicitly states the patient is fit, which contradicts the claim of the patient being unable to participate in physical activities.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 15",
+    "decision": "DENY",
+    "confidence_score": 1.0,
+    "reasoning": "Extraction: Name 'Roy Hoffman' does not match the initials 'R G' in the medical document. Logic: IDENTITY MATCH rule triggered a fatal mismatch.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 16",
+    "decision": "APPROVE",
+    "confidence_score": 1.0,
+    "reasoning": "Extraction: Name 'Piccirilly Francesca' matches 'PICCIRILLI FRANCESCA' in the medical document, Medical Incident Date is 14-04-2017, Flight/Train Departure Date is 2017-04-14. Gap Math: 0 days. Logic: The identity match is perfect, and the gap between the medical incident and the train departure is 0 days, which satisfies the 7-day gap rule. The document does not show any chronological impossibilities or contradictory dates.",
+    "payout": 38.0
+  },
+  {
+    "claim": "claim 17",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: The medical text states the patient is in 'buenas condiciones clinicas, apto para actividad fisica de cualquier tipo.' Logic: The HEALTHY_REPORT kill-switch triggered because the medical text explicitly states the patient is fit for physical activity, indicating no medical issue.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 18",
+    "decision": "DENY",
+    "confidence_score": 0.8,
+    "reasoning": "Extraction: The claimant has submitted a text description of their medical emergency and an image of a hospital admission document. Logic: The submitted image is described as 'HOSPITAL!' which suggests it may be an image of a building or an environmental text, triggering the INVALID_PHOTO kill-switch.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 19",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: The [Image/OCR Content: Spanish_medical_6.jpeg] file contains unstructured and nonsensical text, which does not resemble a medical certificate. Logic: The INVALID_PHOTO kill-switch is triggered because the provided image does not contain structured text, and the extracted text does not resemble an official document.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 20",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: The [Image/OCR Content: Spanish_medical_7.webp] file contains a medical certificate, but it is signed by OLGA ROCIO BELLO GARZON, who is the COORDINADOR DE ADMISIONES, which is an administrative staff member, not a Medical Professional. Logic: The MISSING_SIGNATURE kill-switch is triggered because the signature is from an administrative staff member instead of a Medical Professional.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 21",
+    "decision": "UNCERTAIN",
+    "confidence_score": 0.6,
+    "reasoning": "Extraction: No visual evidence of a signed and sealed document from Dr. Jorge Andrez Arias Castro. Logic: MISSING_AUTHENTICATION kill-switch triggered due to lack of authentication markers in the provided text documents.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 22",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: The medical text explicitly states the patient is in 'perfecto estado de salud' (perfect state of health). Logic: The HEALTHY_REPORT kill-switch triggered, as the medical text explicitly states the patient is healthy.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 23",
+    "decision": "DENY",
+    "confidence_score": 1.0,
+    "reasoning": "Extraction: Claimant's name is Esteban Pillasagua, medical incident date is 2015-12-14, and flight/hotel check-in date is 2015-12-14. The medical certificate is dated 2016-01-05, which is after the incident date. Logic: The IDENTITY MATCH rule is triggered as the claimant's name 'Esteban Pillasagua' does not match the patient's name 'PILLASAGUA CANO AMARILIS ESTELA' in the medical certificate. The CHRONOLOGY & STAMP AUDIT rule is also triggered as the document stamp date (2016-01-05) does not predate the incident date, but the year discrepancy is not present.",
+    "payout": 0.0
+  },
+  {
+    "claim": "claim 24",
+    "decision": "APPROVE",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: Name 'GUANOTU\u00d1A TOALOMBO JORDY STALIN' matches the claimant's name. Medical Incident Date is February 1, 2017 (inferred from 'the day before travel' on February 2, 2017), and Flight/Train Departure Date is February 2, 2017. Gap Math: 1 day. Logic: The category is Trip Cancellation, and the reason is a medical emergency, which is covered. The identity match is perfect, and the gap math is satisfied. However, the medical certificate was issued on February 5, 2017, which is after the incident date, but this does not directly contradict the claim since it confirms the condition.",
+    "payout": 29.0
+  },
+  {
+    "claim": "claim 25",
+    "decision": "DENY",
+    "confidence_score": 0.95,
+    "reasoning": "Extraction: No official dental certificate provided as an image. Logic: FORGERY_TEXT kill-switch triggered as the claimant mentions an acute abscess and the need for a dental certificate but does not provide it as an image, only mentioning it in the description.",
+    "payout": 0.0
+  }
+]
