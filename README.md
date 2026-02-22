@@ -38,3 +38,9 @@ pip install -r requirements.txt
 
 ## Run the app
 python app.py
+
+# Demo Screenshot
+
+<p align="center">
+  <img src="demo/demo.png" width="800" title="MarvelX UI">
+</p>
