@@ -17,3 +17,24 @@
 * Modern UI: A sleek, glassmorphism-inspired web interface built with Flask.
 
 * Transparent Reasoning: Detailed JSON-based decision logs explaining the why behind every verdict.
+
+# The Architecture
+
+* **The Gateman**: Acts as the first line of defense. It checks for "Kill-Switches" like poor image quality or obvious data tampering.
+
+* **The Auditor**: Performs the deep logic. It compares the claimant’s description against the extracted proof and supporting system data.
+
+# Installation & Setup
+
+## Clone the repo
+git clone https://github.com/Yashar7800/MarvelX-Forensic-Claims-AI.git
+
+## Create virtual environment
+python -m venv project-env
+source project-env/Scripts/activate
+
+## Install dependencies
+pip install -r requirements.txt
+
+## Run the app
+python app.py
