@@ -22,9 +22,9 @@
 
 `The core of MarvelX is a multi-agent forensic engine. Instead of a single AI trying to do everything, the task is split between specialized "agents" using LangGraph.`
 
-1. **Data Ingestion:**The Flask app collects the Claim ID, a text description, and two files (the "Proof" image and "Supporting" documentation).
+1. **Data Ingestion:** The Flask app collects the Claim ID, a text description, and two files (the "Proof" image and "Supporting" documentation).
 
-2. **The Gateman Agent:**It uses EasyOCR to "read" the image. If it finds the image is unreadable, redacted (blacked out), or contains "kill-switch" keywords, it stops the process immediately to prevent fraud.
+2. **The Gateman Agent:** It uses EasyOCR to "read" the image. If it finds the image is unreadable, redacted (blacked out), or contains "kill-switch" keywords, it stops the process immediately to prevent fraud.
 
 3. **The Auditor Agent:** If the Gateman passes the claim, the Auditor takes over. It compares the text the user typed against the text found in the documents. It looks for forensic discrepancies, such as:
 
