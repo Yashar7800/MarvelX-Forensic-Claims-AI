@@ -2,6 +2,10 @@
 
 **An Intelligent Multi-Agent System for Automated Insurance Claim Verification.**
 
+<p align="center">
+  <img src="demo/demo.png" width="800" title="MarvelX UI">
+</p>
+
 # Project Overview
 
 `In the traditional insurance world, verifying claims is a slow, manual process prone to human error. MarvelX Forensic Claims AI leverages a collaborative multi-agent architecture to instantly analyze proof of loss, cross-reference documentation, and detect discrepancies (like date mismatches or invalid OCR data) using a forensic-first approach.`
